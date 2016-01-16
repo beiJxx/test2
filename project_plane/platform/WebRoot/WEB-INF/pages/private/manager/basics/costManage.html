@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>费用维护</title>
+<link rel="stylesheet" type="text/css"
+	href="../../../../css/bootstrap.min.css">
+<style type="text/css">
+.mylabel {
+	color: inherit;
+	font-family: inherit;
+	font-weight: bold;
+	line-height: 20px;
+	margin: 10px 0;
+	text-rendering: optimizelegibility;
+	font-size: 22px;
+}
+.noModify{
+	border: 0 solid #CCCCCC !important;
+	box-shadow: none !important;
+}
+</style>
+<script type="text/javascript">
+	function showSave(btnId,inputId){
+		$("#" + btnId).css("display","block");
+		$("#" + inputId).attr("readonly",false);
+		$("#" + inputId).val("");
+		$("#" + inputId).removeClass("noModify");
+	}
+</script>
+</head>
+<script type="text/javascript" src="../../../../js/jquery.js"></script>
+<body>
+	<div class="hero-unit">
+		<h3>退票费用维护：
+			<a href="" id="saveReturnBtn" class="btn pull-right btn-success" style="display: none;margin-left: 10px;">保存修改</a>
+			<a href="#" class="btn pull-right btn-info" onclick="showSave('saveReturnBtn','returnInput')">修改退票费用</a>
+		</h3>
+		<hr />
+		<div class="offset1">
+			<label class="mylabel">现退票手续费：</label>
+			<font class="offset1" style="color: #009966 ">出票价格的：</font>
+			<input  id="returnInput" class="noModify" type="text"  name="" value="25%" placeholder="0.25" readonly="readonly"/>
+			<label class="mylabel">上次修改时间：</label>
+			<font class="offset1" style="color: #009966 ">2013-12-22</font>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCtype HTML>
+<html lang="en">
+<head>
+<title>c.html</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="../../css/bootstrap.min.css"
+	type="text/css"></link>
+<link rel="stylesheet" href="../../css/grid.css" type="text/css"></link>
+<script type="text/javascript" src="../../js/jquery.js"></script>
+<script type="text/javascript" src="../../js/bootstrap.min.js"></script>
+<style type="text/css">
+	div{
+		margin-top: 3px;
+	}
+	label:hover{
+		background-image: url('../../images/selected.png');
+	}
+	label {
+		padding-left: 15px;
+	}
+</style>
+</head>
+<body>
+	<div class="accordion" id="accordion">
+		<div class="accordion-group">
+			<div class="accordion-heading">
+				<a class="accordion-toggle" data-toggle="collapse"
+					data-parent="#accordion" href="#basic">基本参数 </a>
+			</div>
+			<div id="basic" class="accordion-body collapse">
+				<div class="accordion-inner">
+					<label onclick="parent.gotoPage('manager/basics/levelManage.html')">等级维护</label>
+					<label onclick="parent.gotoPage('manager/basics/news.html')">通知公告</label>
+					<label onclick="parent.gotoPage('manager/basics/costManage.html')">费用维护</label>
+				</div>
+			</div>
+		</div>
+		<div class="accordion-group">
+			<div class="accordion-heading">
+				<a class="accordion-toggle" data-toggle="collapse"
+					data-parent="#accordion" href="#ticket">票务管理</a>
+			</div>
+			<div id="ticket" class="accordion-body collapse">
+				<div class="accordion-inner">
+					<label  onclick="parent.gotoPage('manager/tickets/distributeManage.html')">机票分销</label>
+					<label  onclick="parent.gotoPage('manager/tickets/additionManage.html')">机票追加－分销商</label>
+					<label  onclick="parent.gotoPage('manager/tickets/additionManage_manager.html')">机票追加－管理员</label>
+					<label  onclick="parent.gotoPage('manager/tickets/additionPlan.html')">分销计划</label>
+				</div>
+			</div>
+		</div>
+		<div class="accordion-group">
+			<div class="accordion-heading">
+				<a class="accordion-toggle" data-toggle="collapse"
+					data-parent="#accordion" href="#distributor">分销商管理</a>
+			</div>
+			<div id="distributor" class="accordion-body collapse">
+				<div class="accordion-inner">
+					<label  onclick="parent.gotoPage('manager/distributors/distributorManager.html')">分销商管理</label>
+					<label  onclick="parent.gotoPage('manager/distributors/assessment.html')">考核信息</label>
+				</div>
+			</div>
+		</div>
+		<div class="accordion-group">
+			<div class="accordion-heading">
+				<a class="accordion-toggle" data-toggle="collapse"
+					data-parent="#accordion" href="#ass">报表</a>
+			</div>
+			<div id="ass" class="accordion-body collapse">
+				<div class="accordion-inner">
+				<label onclick="parent.gotoPage('manager/reports/report_distributor.html')">统计报表(分销商)</label>
+				<label onclick="parent.gotoPage('manager/reports/report_admin.html')">统计报表(管理员)</label>
+				</div>
+			</div>
+		</div>
+		<div class="accordion-group">
+			<div class="accordion-heading">
+				<a class="accordion-toggle" data-toggle="collapse"
+					data-parent="#accordion" href="#rights">权限管理</a>
+			</div>
+			<div id="rights" class="accordion-body collapse">
+				<div class="accordion-inner">
+				<label onclick="parent.gotoPage('manager/rights/rightManage.html')">权限管理</label>
+				<label onclick="parent.gotoPage('manager/rights/roleManage.html')">角色管理</label>
+				<label onclick="parent.gotoPage('manager/rights/memberManage.html')">管理员管理</label>
+				</div>
+			</div>
+		</div>
+		<div class="accordion-group">
+			<div class="accordion-heading">
+				<a class="accordion-toggle" data-toggle="collapse"
+					data-parent="#accordion" href="#js">财务结算</a>
+			</div>
+			<div id="js" class="accordion-body collapse">
+				<div class="accordion-inner">
+				<label onclick="parent.gotoPage('manager/settle/settle_distributor.html')">财务结算</label>
+				<label onclick="parent.gotoPage('manager/settle/settle_admin.html')">财务结算</label>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

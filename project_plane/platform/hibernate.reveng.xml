@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd" >
+
+<hibernate-reverse-engineering>
+	<table name="ADDITIONAL_TICKET" schema="TICKET01TDS"
+		class="AdditionalTicket">
+		<primary-key>
+			<generator class="sequence"></generator>
+			<key-column name="AT_ID" property="id" type="int" />
+		</primary-key>
+		<column name="AT_DATE" property="takeOffDate"></column>
+		<column name="AT_PLANE_NUM" property="planeNum"></column>
+		<column name="AT_SUBMIT_DATE" property="submitDate"></column>
+		<column name="AT_FIRST_NUM" property="firstNum"></column>
+		<column name="AT_ECONOMY_NUM" property="economyNum"></column>
+		<column name="AT_CHECK_FLAG" property="checkFlag"></column>
+		<column name="AT_VALID_FLAG" property="validFlag"></column>
+	</table>
+	<table name="DISTRIBUTORS" schema="TICKET01TDS">
+		<column name="D_COMPANY_NAME" property="companyName"></column>
+		<column name="D_INFO" property="info"></column>
+		<column name="D_LINK_MAN" property="linkMan"></column>
+		<column name="D_PHONE" property="phone"></column>
+		<column name="D_QQ" property="qq"></column>
+		<column name="D_EMAIL" property="email"></column>
+		<column name="D_ACCOUNT" property="account"></column>
+	</table>
+	<table name="Settlement" schema="TICKET01TDS">
+		<column name="S_SERIAL" property="serial"></column>
+		<column name="S_NUM" property="num"></column>
+		<column name="S_CRED" property="cred"></column>
+		<column name="S_STATUS" property="status"></column>
+	</table>
+	<table name="TICKET_PLAN" schema="TICKET01TDS">
+		<column name="TP_DATE" property="takeOffDate"></column>
+		<column name="DP_NAME" property="planName"></column>
+		<column name="DP_FIRST_NUM" property="firstNum"></column>
+		<column name="DP_ECONOMY_NUM" property="economyNum"></column>
+		<column name="DP_FIRST_SELL_NUM" property="firstSaleNum"></column>
+		<column name="DP_ECONOMY_SELL_NUM" property="economySaleNum"></column>
+	</table>
+	<table name="DISTRIBUTION_PLAN" schema="TICKET01TDS">
+		<column name="DP_PLANE_NUM" property="planeNum"></column>
+		<column name="DP_NAME" property="name"></column>
+		<column name="DP_TAKE_OFF_DATE" property="takeOffDate"></column>
+		<column name="DP_ASSIGN_TICKET" property="assignTicket"></column>
+		<column name="DP_DISCOUNT" property="discount"></column>
+		<column name="DP_CREATE_TIME" property="createTime"></column>
+		<column name="DP_FLAG" property="flag"></column>
+	</table>
+	<table name="REFUND_FEE" schema="TICKET01TDS"></table>
+	<table name="DISTRIBUTORS_LEVEL" schema="TICKET01TDS">
+		<column name="DL_LEVEL" property="level"></column>
+		<column name="DL_SELL_RATE" property="saleRate"></column>
+		<column name="DL_SHARE" property="share"></column>
+		<column name="DL_MARGIN" property="margin"></column>
+		<column name="DL_FLAG" property="flag"></column>
+	</table>
+</hibernate-reverse-engineering>

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>费用维护</title>
+<link rel="stylesheet" type="text/css"
+	href="../../../../css/bootstrap.min.css">
+</head>
+<script type="text/javascript" src="../../../../js/jquery.js"></script>
+<script src="../../../../js/bootstrap.min.js"></script>
+<script type="text/javascript">
+	function confirm(company, no, money, item) {
+		$("#company").text(company);
+		$("#no").text(no);
+		$("#money").text(money);
+		$(item).attr("data-toggle", "modal");
+	}
+	function refuse(company, no, money, item) {
+		$("#company_refuse").text(company);
+		$("#no_refuse").text(no);
+		$("#money_refuse").text(money);
+		$(item).attr("data-toggle", "modal");
+	}
+</script>
+<body>
+	<form class="bs-docs-example form-search">
+		<font style="font-weight: bold;">查询条件:&nbsp;&nbsp;&nbsp;</font>
+		<label for="moduleName">分销商名称</label> 
+		<input type="text" name="moduleName" class="input-small search-query" placeholder="分销商名称">
+		<label for="moduleName">结算状态：</label>
+		<label class="radio">
+			<input type="radio" name="status" value="0" checked>
+			所有
+		</label>
+		<label class="radio">
+			<input type="radio" name="status" value="1" >
+			待确认
+		</label>
+		<label class="radio">
+			<input type="radio" name="status" value="2" >
+			已确认
+		</label>
+		<label class="radio">
+			<input type="radio" name="status" value="3" >
+			已拒绝
+		</label>
+		<button class="btn" type="submit">查询</button>
+	</form>
+	<table class="table table-bordered table-hover table-striped"
+		style="width: 100%">
+		<thead>
+			<tr>
+				<th>分销商ID</th>
+				<th>分销商编号</th>
+				<th>分销商名称</th>
+				<th>结算流水号</th>
+				<th>结算金额</th>
+				<th>凭据</th>
+				<th>状态</th>
+				<th>操作</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>1</td>
+				<td>20131201</td>
+				<td>携程</td>
+				<td>234236234543</td>
+				<td>50万</td>
+				<th><a href="#credential" data-toggle="modal">查看凭据</a>
+				</th>
+				<td>待确认</td>
+				<td><a href="#confirm"
+					onclick="confirm('携程','21312324d31','50万',this)">确认</a> <a
+					href="#refuse" onclick="refuse('携程','2131231','50万',this)">拒绝</a></td>
+			</tr>
+			<tr>
+				<td>2</td>
+				<td>20131201</td>
+				<td>携程</td>
+				<td>67856875677</td>
+				<td>50万</td>
+				<th><a href="#credential" data-toggle="modal">查看凭据</a>
+				</th>
+				<td>待确认</td>
+				<td><a href="#">确认</a> <a href="#">拒绝</a></td>
+			</tr>
+			<tr>
+				<td>4</td>
+				<td>20131201</td>
+				<td>携程</td>
+				<td>70987765456</td>
+				<td>50万</td>
+				<th><a href="#">查看凭据</a>
+				</th>
+				<td>待确认</td>
+				<td><a href="#">确认</a> <a href="#">拒绝</a></td>
+			</tr>
+		</tbody>
+	</table>
+	<div class="bs-docs-example">
+		<div class="pagination pagination-centered">
+			<ul>
+				<li class="disabled"><a href="#">«</a></li>
+				<li class="active"><a href="#">1</a></li>
+				<li><a href="#">2</a></li>
+				<li><a href="#">3</a></li>
+				<li><a href="#">4</a></li>
+				<li><a href="#">5</a></li>
+				<li><a href="#">»</a></li>
+			</ul>
+		</div>
+	</div>
+
+
+
+	<!-- S结算的弹出 -->
+	<div id="confirm" class="modal hide fade" tabindex="-1" role="dialog"
+		aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-header">
+			<h3 align="center">结算确认</h3>
+		</div>
+		<div class="modal-body">
+			<div>
+				<h3 id="company"></h3>
+			</div>
+			<form class="bs-docs-example form-horizontal">
+				<div class="control-group">
+					<label class="control-label"> 流水单号： <font id="no"></font> </label>
+					<label class="control-label"> 结算金额 <font id="money"></font></label>
+				</div>
+				<div class="control-group">
+						凭据
+					 <img src="../../../../images/top.jpg"></img>
+				</div>
+			</form>
+		</div>
+		<div class="modal-footer">
+			<button id="save" class="btn btn-primary" onclick="save()">确认结算</button>
+			<button class="btn" data-dismiss="modal" aria-hidden="true">取消</button>
+		</div>
+	</div>
+	<!-- E结算的弹出 -->
+	<!-- S结算的弹出 -->
+	<div id="refuse" class="modal hide fade" tabindex="-1" role="dialog"
+		aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-header">
+			<h3 align="center">结算拒绝</h3>
+		</div>
+		<div class="modal-body">
+			<div>
+				<h3 id="company_refuse"></h3>
+			</div>
+			<form class="bs-docs-example form-horizontal">
+				<div class="control-group">
+					<label class="control-label">流水单号:</label>
+					<div class="controls" id="no_refuse"></div>
+				</div>
+				<div class="control-group">
+					<label class="control-label">结算金额:</label>
+					<div class="controls" id="money_refuse"></div>
+				</div>
+				<div class="control-group">
+					<label class="control-label">拒绝原因:</label>
+					<div class="controls">
+						<textarea rows="10" cols="400"></textarea>
+					</div>
+				</div>
+			</form>
+		</div>
+		<div class="modal-footer">
+			<button id="save" class="btn btn-danger" onclick="save()">结算拒绝</button>
+			<button class="btn" data-dismiss="modal" aria-hidden="true">取消</button>
+		</div>
+	</div>
+	<!-- E结算的弹出 -->
+	<!-- S凭据的弹出 -->
+	<div id="credential" class="modal hide fade" tabindex="-1"
+		role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-header">
+			<h3 align="center">凭据</h3>
+		</div>
+		<div class="modal-body" style="text-align: center;">
+			<img src="../../../../images/top.jpg"></img>
+		</div>
+	</div>
+	<!-- E凭据的弹出 -->
+
+
+</body>
+</html>

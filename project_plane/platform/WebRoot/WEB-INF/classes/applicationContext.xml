@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+	http://www.springframework.org/schema/tx
+	http://www.springframework.org/schema/tx/spring-tx.xsd
+	http://www.springframework.org/schema/aop
+	http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"></property>
+		<property name="username" value="zgh"></property>
+		<property name="password" value="ghu0147"></property>
+		<property name="url" value="jdbc:oracle:thin:@192.168.12.61:1521:db2"></property>
+	</bean>
+	
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"></property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.Oracle9Dialect</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.format_sql">true</prop>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
+			</props>
+		</property>
+		<property name="mappingResources">
+			<list>
+				<value>com/itany/netctoss/pojo/Admin.hbm.xml</value>
+				<value>com/itany/netctoss/pojo/AdminRole.hbm.xml</value>
+				<value>com/itany/netctoss/pojo/Module.hbm.xml</value>
+				<value>com/itany/netctoss/pojo/Operation.hbm.xml</value>
+				<value>com/itany/netctoss/pojo/Pricing.hbm.xml</value>
+				<value>com/itany/netctoss/pojo/Right.hbm.xml</value>
+				<value>com/itany/netctoss/pojo/Role.hbm.xml</value>
+				<value>com/itany/netctoss/pojo/RoleRight.hbm.xml</value>
+				<value>com/itany/netctoss/pojo/User.hbm.xml</value>
+				<value>com/itany/netctoss/pojo/UserBusiness.hbm.xml</value>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="genericDao" class="com.itany.netctoss.dao.impl.GenericDaoImpl" abstract="true">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<tx:advice id="advice" transaction-manager="transactionManager">
+		<tx:attributes>
+			<tx:method name="*" propagation="REQUIRED"/>
+		</tx:attributes>
+	</tx:advice>
+	
+	<aop:config>
+		<aop:pointcut expression="execution(* com.itany.netctoss.service.I*Service.*(..))" id="service"/>
+		<aop:advisor advice-ref="advice" pointcut-ref="service"/>
+	</aop:config>
+	
+</beans>

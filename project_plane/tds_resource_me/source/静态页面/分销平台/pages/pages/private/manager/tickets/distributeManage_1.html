@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>机票分销</title>
+<style type="text/css">
+	div{
+		margin-bottom: 10px;
+	}
+</style>
+<script type="text/javascript">
+		function update(){
+			$("#update").attr("data-dismiss","modal");
+		}
+		function save(){
+			$("#save").attr("data-dismiss","modal");
+		}
+		function modify(id,item){
+			alert(id);
+			$(item).attr("data-toggle","modal");
+		}
+		function distribute(){
+			var s = confirm('分配成功！现在查看分配结果吗？');
+			if(s){
+				window.location.href = "distributeManage_2.html";
+			}
+		}
+	</script>
+</head>
+<link rel="stylesheet" type="text/css"
+	href="../../../../css/bootstrap-responsive.min.css">
+<link rel="stylesheet" type="text/css"
+	href="../../../../css/bootstrap.min.css">
+<link href="../../../../css/bootstrap.min.css" rel="stylesheet"
+	media="screen">
+<link href="../../../../css/bootstrap-datetimepicker.min.css"
+	rel="stylesheet" media="screen">
+<script type="text/javascript" src="../../../../js/jquery.js"></script>
+<script src="../../../../js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../../../js/transition.js"></script>
+<script type="text/javascript" src="../../../../js/modal.js"></script>
+<script type="text/javascript" src="../../../../js/button.js"></script>
+
+<body>
+	<form class="bs-docs-example form-search" 
+		method="post">
+	<div style="font-size: 27px;margin-top: 10px">
+		<a href="distributeManage.html"><img alt="返回" src="../../../../images/back.png" onclick=""></img></a>
+		IU0001次航班
+		<span class="offset5" style="font-size: 20px" for="sdate">日期：</span>
+        <div class="controls input-append date form_time" data-date="" data-date-format="yyyy-MM-dd" data-link-field="dtp_input2" data-link-format="yyyy-MM-dd">
+             <input size="8" style="width: 80px;" type="text" value="" readonly>
+             <span class="add-on"><i class="icon-remove"></i></span>
+			 <span class="add-on"><i class="icon-th"></i></span>
+        </div>
+		<input type="hidden" id="dtp_input2" value="" />
+		<button class="btn" type="submit">查询</button>
+	</div>
+		
+	
+	</form>
+	<div class="message">
+	<table style="width: 100%" class="table table-bordered table-hover table-striped">
+		<thead>
+			<tr>
+				<th>序号</th>
+				<th>日期</th>
+				<th>票数</th>
+				<th>分配计划</th>
+				<th>票价</th>
+				<th>操作</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>1</td>
+				<td>2013-12-22</td>
+				<td>33</td>
+				<td>计划一</td>
+				<td>
+					<label>商务舱：￥200</label>
+					<label>经济舱：￥80</label>
+				</td>
+				<td><a href="#" onclick="distribute()">分配</a>
+				</td>
+			</tr>
+			<tr>
+				<td>2</td>
+				<td>2013-12-04</td>
+				<td>2432</td>
+				<td>计划二</td>
+				<td>
+					<label>商务舱：￥400</label>
+					<label>经济舱：￥120</label>
+				</td>
+				<td><a href="distributeManage_2.html">查看</a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+
+
+    </div>
+        
+	
+	<div class="bs-docs-example">
+		<div class="pagination pagination-centered">
+			<ul>
+				<li class="disabled"><a href="#">«</a></li>
+				<li class="active"><a href="#">1</a></li>
+				<li><a href="#">2</a></li>
+				<li><a href="#">3</a></li>
+				<li><a href="#">4</a></li>
+				<li><a href="#">5</a></li>
+				<li><a href="#">»</a></li>
+			</ul>
+		</div>
+	</div>
+	<script type="text/javascript"
+		src="../../../../js/bootstrap-datetimepicker.min.js" charset="UTF-8"></script>
+	<script type="text/javascript"
+		src="../../../../js/bootstrap-datetimepicker.zh-CN.js" charset="UTF-8"></script>
+	<script type="text/javascript">
+		$('.form_time').datetimepicker({
+			language : 'zh-CN',
+			weekStart : 1,
+			todayBtn : 1,
+			autoclose : 1,
+			todayHighlight : 1,
+			startView : 2,
+			minView : 2,
+			maxView : 4,
+			forceParse : 1
+		});
+	</script>
+</body>
+</html>

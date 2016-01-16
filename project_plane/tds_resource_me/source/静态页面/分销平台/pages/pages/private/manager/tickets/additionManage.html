@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>机票分销</title>
+<style type="text/css">
+	div{
+		margin-bottom: 10px;
+	}
+</style>
+</head>
+<link rel="stylesheet" type="text/css"
+	href="../../../../css/bootstrap-responsive.min.css">
+<link rel="stylesheet" type="text/css"
+	href="../../../../css/bootstrap.min.css">
+<link href="../../../../css/bootstrap.min.css" rel="stylesheet"
+	media="screen">
+<link href="../../../../css/bootstrap-datetimepicker.min.css"
+	rel="stylesheet" media="screen">
+<script type="text/javascript" src="../../../../js/jquery.js"></script>
+<script src="../../../../js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../../../js/transition.js"></script>
+<script type="text/javascript" src="../../../../js/modal.js"></script>
+<script type="text/javascript" src="../../../../js/button.js"></script>
+
+<body>
+	<form class="bs-docs-example form-search" 
+		method="post">
+		<font style="font-weight: bold;">查询条件:&nbsp;&nbsp;&nbsp;</font>
+		
+		<label for="no">航班号：</label> 
+		<input type="text" name="no" class="input-mini search-query" placeholder="航班号" /> 
+		
+		<button class="btn" type="submit">查询</button>
+		<a href="#addapply"  class="btn pull-right btn-success" data-toggle="modal" >添加申请</a>
+	</form>
+	
+	<div class="message">
+	<table style="width: 100%" class="table table-bordered table-hover table-striped">
+		<thead>
+			<tr>
+				<th>编号</th>
+				<th>申请流水号</th>
+				<th>申请航班</th>
+				<th>日期</th>
+				<th>申请票数</th>
+				<th>总价</th>
+				<th>状态</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>1</td>
+				<th>213123555</th>
+				<th>UC21389</th>
+				<th>2014-01-01</th>
+				<th>头等舱：5张  经济舱：3张</th>
+				<th>￥321231</th>
+				<td style="color: goldenrod">待确认</td>
+			</tr>
+			<tr>
+				<td>2</td>
+				<th>213123556</th>
+				<th>UC21389</th>
+				<th>2014-01-01</th>
+				<th>头等舱：5张  经济舱：3张</th>
+				<th>￥321231</th>
+				<td style="color: seagreen;">已确认</td>
+			</tr>
+			<tr>
+				<td>2</td>
+				<th>213123557</th>
+				<th>UC21389</th>
+				<th>2014-01-01</th>
+				<th>头等舱：5张  经济舱：3张</th>
+				<th>￥321231</th>
+				<td style="color: tomato;">已拒绝</td>
+			</tr>
+		</tbody>
+	</table>
+
+
+    </div>
+        
+	
+	<div class="bs-docs-example">
+		<div class="pagination pagination-centered">
+			<ul>
+				<li class="disabled"><a href="#">«</a></li>
+				<li class="active"><a href="#">1</a></li>
+				<li><a href="#">2</a></li>
+				<li><a href="#">3</a></li>
+				<li><a href="#">4</a></li>
+				<li><a href="#">5</a></li>
+				<li><a href="#">»</a></li>
+			</ul>
+		</div>
+	</div>
+	
+	<!-- 	S等级增加的弹出 -->
+	<div id="addapply" class="modal hide fade" tabindex="-1" role="dialog"
+		aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-header">
+			<h3 align="center">添加申请</h3>
+		</div>
+		<div class="modal-body">
+		<form class="bs-docs-example form-horizontal">
+			<div class="control-group">
+				
+				<label for="rate" class="control-label">航班号</label>
+				<div class="controls">
+              		<select>
+              			<option value="1">UC3212</option>
+              			<option value="1">AS2374</option>
+              			<option value="1">BD2323</option>
+              			<option value="1">UC111</option>
+              			<option value="1">OD0001</option>
+              		</select>
+				</div>
+				<label for="price" class="control-label">飞行日期</label>
+				<div class="controls">
+					<div class="input-append date form_time" data-date="" data-date-format="yyyy-MM-dd" data-link-field="dtp_input2" data-link-format="yyyy-MM-dd">
+            			<input size="8" style="width: 80px;" type="text" value="" readonly>
+             			<span class="add-on"><i class="icon-remove"></i></span>
+			 			<span class="add-on"><i class="icon-th"></i></span>
+        			</div>
+				</div>
+				<label class="control-label">头等舱</label>
+				<div class="controls">
+              		<input type="text" placeholder="00" name="price" class="span3">
+				</div>
+				<label class="control-label">经济舱</label>
+				<div class="controls">
+              		<input type="text" placeholder="00" name="price" class="span3">
+				</div>
+				<label for="id" class="control-label">总票价</label>
+				<div class="controls">
+					<font>￥5656</font>
+					<input type="hidden" value=""/>
+				</div>
+			</div></form>
+		</div>
+		<div class="modal-footer">
+			<button id="save" class="btn btn-primary" onclick="save()">添加</button>
+			<button class="btn" data-dismiss="modal" aria-hidden="true">取消</button>
+		</div>
+	</div>
+	
+	<script type="text/javascript"
+		src="../../../../js/bootstrap-datetimepicker.min.js" charset="UTF-8"></script>
+	<script type="text/javascript"
+		src="../../../../js/bootstrap-datetimepicker.zh-CN.js" charset="UTF-8"></script>
+	<script type="text/javascript">
+		$('.form_time').datetimepicker({
+			language : 'zh-CN',
+			weekStart : 1,
+			todayBtn : 1,
+			autoclose : 1,
+			todayHighlight : 1,
+			startView : 2,
+			minView : 2,
+			maxView : 4,
+			forceParse : 1
+		});
+	</script>
+	
+</body>
+</html>

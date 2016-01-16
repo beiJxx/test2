@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN" "struts-2.1.7.dtd" >
+<struts>
+	<!-- 开发模式打开，Struts2配置文件修改后不需要重新启动 -->
+	<constant name="struts.devMode" value="true"></constant>
+	
+	<!-- 允许OGNL 静态方法调用 -->
+	<constant name="struts.ognl.allowStaticMethodAccess" value="true"></constant>
+	<!-- 默认主题为simple -->
+	<constant name="struts.ui.theme" value="simple"></constant>
+	
+	<package name="notlogin" extends="struts-default" namespace="/">
+		<action name="validcode" class="" />
+	</package>
+
+
+	<package name="login" extends="struts-default">
+		<!-- 返回值类型 -->
+		<result-types>
+			<result-type name="json" class="org.apache.struts2.json.JSONResult" />
+		</result-types>
+		<!-- 拦截器和拦截器栈 -->
+		<interceptors>
+			<interceptor name="json"
+				class="org.apache.struts2.json.JSONInterceptor" />
+			
+			<interceptor-stack name="ajaxStack">
+				<interceptor-ref name="defaultStack"></interceptor-ref>
+				<interceptor-ref name="json"></interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+
+		<!-- 设置默认拦截器 -->
+		<default-interceptor-ref name="ajaxStack"></default-interceptor-ref>
+	</package>
+
+</struts>    

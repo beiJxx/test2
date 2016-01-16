@@ -1,0 +1,53 @@
+<!DOCtype HTML>
+<html lang="en">
+<head>
+<title>票务系统</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css"
+	href="../css/bootstrap-responsive.css">
+<link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+<script src="../js/jquery.js"></script>
+<script src="../js/bootstrap.js"></script>
+<script type="text/javascript">
+	function cg(item) {
+		$("li").removeClass("active");
+		$(item).parent().attr("class", "active");
+	}
+	function show(url, item) {
+		$("#mainFrm").attr("src", url);
+		cg(item);
+	}
+</script>
+</head>
+<body>
+	<div style="width: 95%; margin-left: auto;">
+		<div class="col-xs-11 div" style="height: 161px;">
+			<div class="row show-grid"
+				style="background-image: url('../images/top.jpg'); background-repeat: no-repeat; height: 163px; ">
+				<div style="margin-top: 102px;">
+					<div class="navbar">
+						<div class="navbar-inner container">
+							<div class="nav-collapse navbar-responsive-collapse">
+								<ul class="nav pull-left">
+									<li class="active"><a href="javascript:void(0)"
+										onclick="show('blank.html',this)">首页</a>
+									</li>
+									<li><a href="javascript:void(0)"
+										onclick="show('flightManage.html',this)">航班管理</a></li>
+									<li><a href="javascript:void(0)"
+										onclick="show('ticketManage.html',this)">票数管理</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-xs-11 div" style="margin-left: 0px;padding: 0 0">
+			<iframe id="mainFrm" src="blank.html" scrolling="no" width="100%" height="900px"
+				frameborder="0"></iframe>
+		</div>
+	</div>
+</body>
+</html>

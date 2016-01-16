@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>分销商报表信息_管理员</title>
+</head>
+<link rel="stylesheet" type="text/css"
+	href="../../../../css/bootstrap-responsive.min.css">
+<link rel="stylesheet" type="text/css"
+	href="../../../../css/bootstrap.min.css">
+<link href="../../../../css/bootstrap-datetimepicker.min.css"
+	rel="stylesheet" media="screen">
+<script src="../../../../js/jquery.js"></script>
+<script src="../../../../js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../../../js/transition.js"></script>
+<script type="text/javascript" src="../../../../js/modal.js"></script>
+<script type="text/javascript" src="../../../../js/button.js"></script>
+<script type="text/javascript" src="../../../../js/bootstrap-datetimepicker.min.js" charset="UTF-8"></script>
+<script type="text/javascript" src="../../../../js/bootstrap-datetimepicker.zh-CN.js" charset="UTF-8"></script>
+<script type="text/javascript" src="../../../../js/chart.js"></script>
+<script type="text/javascript">
+	function search(){
+		if($("input:radio:checked").val()=="p"){
+			$("#dataTable").css("display","none");
+			$("#dataPic").css("display","block");
+			var barChartData = {
+			labels : ["January","February","March","April","May","June","July"],
+			datasets : [
+				{
+					fillColor : "rgba(220,220,220,0.5)",
+					data : [65,59,90,81,56,55,40]
+				},
+				{
+					fillColor : "rgba(151,187,205,0.5)",
+					data : [28,48,40,19,96,27,100]
+				}
+			]
+			
+		}
+
+	var myLine = new Chart(document.getElementById("canvas").getContext("2d")).Bar(barChartData);
+		}else{
+			$("#dataTable").css("display","block");
+			$("#dataPic").css("display","none");
+		}
+	}
+</script>
+<body>
+	<form class="bs-docs-example form-search" >
+		<font style="font-weight: bold;">查询条件:</font> 
+		<label	for="member">分销商：</label> 
+		<input type="text" name="member" class="input-small search-query" placeholder="分销商">
+		<label>统计年份：</label>
+        <div class="controls input-append date form_date" data-date="" data-date-format="yyyy年" data-link-field="dtp_input2" data-link-format="yyyy-MM-dd">
+             <input size="8" style="width: 80px;" type="text" value="" readonly>
+             <span class="add-on"><i class="icon-remove"></i></span>
+			 <span class="add-on"><i class="icon-th"></i></span>
+        </div>
+		<input type="hidden" id="dtp_input2" value="" />
+		<label class="radio">
+		<input type="radio" name="type" value="p"/>视图
+		</label>
+		<label class="radio">
+		<input type="radio" name="type" value="f" checked="checked"/>表格
+		</label>
+		<button class="btn" type="button" onclick="search()">查询</button>
+		
+	</form>
+	<div id="dataTable">
+	<table class="table table-bordered table-hover table-striped" style="width: 100%">
+		<thead>
+			<tr>
+				<th>分销商</th>
+				<th>分予票数</th>
+				<th>卖出票数</th>
+				<th>售出率(卖出/分予)</th>
+				<th>考核等级</th>
+				<th>详情</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>分销商1</td>
+				<td>200</td>
+				<td>180</td>
+				<td>0.90</td>
+				<td>A</td>
+				<td><a href="report_admin_1.html.html">详情</a></td>
+			</tr>
+			<tr>
+				<td>分销商2</td>
+				<td>180</td>
+				<td>90</td>
+				<td>0.50</td>
+				<td>D</td>
+				<td><a href="report_admin_1.html.html">详情</a></td>
+			</tr>
+			<tr>
+				<td>分销商3</td>
+				<td>300</td>
+				<td>270</td>
+				<td>0.90</td>
+				<td>A</td>
+				<td><a href="report_admin_1.html.html">详情</a></td>
+			</tr>
+		</tbody>
+	</table>
+	<div class="bs-docs-example">
+		<div class="pagination pagination-centered">
+			<ul>
+				<li class="disabled"><a href="#">«</a>
+				</li>
+				<li class="active"><a href="#">1</a>
+				</li>
+				<li><a href="#">2</a>
+				</li>
+				<li><a href="#">3</a>
+				</li>
+				<li><a href="#">4</a>
+				</li>
+				<li><a href="#">5</a>
+				</li>
+				<li><a href="#">»</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	</div>
+	
+	<div id="dataPic" style="display: none;">
+		<canvas id="canvas" height="500" width="600"></canvas>
+	</div>
+	
+	
+	
+	<script type="text/javascript">
+		$('.form_date').datetimepicker({
+			language : 'zh-CN',
+	        weekStart: 1,
+	        todayBtn:  1,
+			autoclose: 1,
+			todayHighlight: 1,
+			startView: 4,
+			minView: 4,
+			forceParse: 0
+		});
+		
+	</script>
+</body>
+</html>

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>分销商考核信息</title>
+</head>
+<link rel="stylesheet" type="text/css"
+	href="../../../../css/bootstrap-responsive.min.css">
+<link rel="stylesheet" type="text/css"
+	href="../../../../css/bootstrap.min.css">
+<link href="../../../../css/bootstrap-datetimepicker.min.css"
+	rel="stylesheet" media="screen">
+<script src="../../../../js/jquery.js"></script>
+<script src="../../../../js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../../../js/transition.js"></script>
+<script type="text/javascript" src="../../../../js/modal.js"></script>
+<script type="text/javascript" src="../../../../js/button.js"></script>
+<script type="text/javascript" src="../../../../js/bootstrap-datetimepicker.min.js" charset="UTF-8"></script>
+<script type="text/javascript" src="../../../../js/bootstrap-datetimepicker.zh-CN.js" charset="UTF-8"></script>
+
+<script type="text/javascript">
+		function update(){
+			$("#update").attr("data-dismiss","modal");
+		}
+		function save(){
+			$("#save").attr("data-dismiss","modal");
+		}
+		function modify(id,item){
+			alert(id);
+			$(item).attr("data-toggle","modal");
+		}
+	</script>
+<body>
+	<form class="bs-docs-example form-search" >
+		<font style="font-weight: bold;">查询条件:&nbsp;&nbsp;&nbsp;</font> 
+		<label	for="name">企业名称：</label> 
+		<input type="text" name="name"	class="input-small search-query" placeholder="企业名称">
+		<label	for="level">考核等级：</label> 
+		<input type="text" name="level"	class="input-small search-query" placeholder="分销商名称">
+		<label	for="roleName">月份：</label>
+        <div class="controls input-append date form_date" data-date="" data-date-format="yyyy-MM" data-link-field="dtp_input2" data-link-format="yyyy-MM-dd">
+             <input size="8" style="width: 80px;" type="text" value="" readonly>
+             <span class="add-on"><i class="icon-remove"></i></span>
+			 <span class="add-on"><i class="icon-th"></i></span>
+        </div>
+		<input type="hidden" id="dtp_input2" value="" />
+		<button class="btn" type="submit">查询</button>
+		
+	</form>
+	<table class="table table-bordered table-hover table-striped" style="width: 100%">
+		<thead>
+			<tr>
+				<th>分销商ID</th>
+				<th>分销商编号</th>
+				<th>分销商名称</th>
+				<th>当月给出票数</th>
+				<th>当月卖出票数</th>
+				<th>比率</th>
+				<th>考核等级</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>1</td>
+				<td>20131201</td>
+				<td>携程</td>
+				<td>100</td>
+				<td>50</td>
+				<td>0.5</td>
+				<td>D</td>
+			</tr>
+			<tr>
+				<td>2</td>
+				<td>20131201</td>
+				<td>携程</td>
+				<td>100</td>
+				<td>90</td>
+				<td>0.9</td>
+				<td>A</td>
+			</tr>
+			<tr>
+				<td>3</td>
+				<td>20131201</td>
+				<td>携程</td>
+				<td>100</td>
+				<td>80</td>
+				<td>0.8</td>
+				<td>B</td>
+			</tr>
+			<tr>
+				<td>4</td>
+				<td>20131201</td>
+				<td>携程</td>
+				<td>100</td>
+				<td>70</td>
+				<td>0.7</td>
+				<td>C</td>
+			</tr>
+		</tbody>
+	</table>
+	<div class="bs-docs-example">
+		<div class="pagination pagination-centered">
+			<ul>
+				<li class="disabled"><a href="#">«</a>
+				</li>
+				<li class="active"><a href="#">1</a>
+				</li>
+				<li><a href="#">2</a>
+				</li>
+				<li><a href="#">3</a>
+				</li>
+				<li><a href="#">4</a>
+				</li>
+				<li><a href="#">5</a>
+				</li>
+				<li><a href="#">»</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<!-- 	S分销商增加的弹出 -->
+	<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog"
+		aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-header">
+			<h3 align="center">分销商增加</h3>
+		</div>
+		<div class="modal-body">
+			<div class="control-group">
+				<label for="companyName" class="control-label">企业名称</label>
+				<div class="controls">
+					<input type="text" placeholder="企业名称" name="companyName" autocomplete="on" required="required" pattern="">
+				</div>
+				
+				<label for="username" class="control-label">登录名</label>
+				<div class="controls">
+					<input type="text" placeholder="登录名" name="username" autocomplete="on" required="required" pattern="">
+				</div>
+				
+				<label for="password" class="control-label">登录密码</label>
+				<div class="controls">
+					<input type="text" placeholder="登录密码" name="password" autocomplete="on" required="required" pattern="">
+				</div>
+				
+				<label for="repassword" class="control-label">重复密码</label>
+				<div class="controls">
+					<input type="text" placeholder="重复密码" name="repassword" autocomplete="on" required="required" pattern="">
+				</div>
+				
+				<label for="linkman" class="control-label">联系人</label>
+				<div class="controls">
+					<input type="text" placeholder="联系人" id="linkman" autocomplete="on" required="required" pattern="">
+				</div>
+				
+				<label for="phone" class="control-label">电话</label>
+				<div class="controls">
+					<input type="text" placeholder="电话" name="phone" autocomplete="on" required="required" pattern="">
+				</div>
+				
+				<label for="qq" class="control-label">QQ</label>
+				<div class="controls">
+					<input type="text" placeholder="QQ" name="qq" autocomplete="on" required="required" pattern="">
+				</div>
+				
+				<label for="email" class="control-label">邮箱</label>
+				<div class="controls">
+					<input type="text" placeholder="邮箱" id="email" autocomplete="on" required="required" pattern="">
+				</div>
+			</div>
+		</div>
+		<div class="modal-footer">
+			<button id="save" class="btn btn-primary" onclick="save()">添加</button>
+			<button class="btn" data-dismiss="modal" aria-hidden="true">取消</button>
+		</div>
+	</div>
+	<!-- 	E分销商增加的弹出 -->
+	<!-- 	S分销商修改的弹出 -->
+	<div id="myModify" class="modal hide fade" tabindex="-1" role="dialog"
+		aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-header">
+			<h3 align="center">分销商修改</h3>
+		</div>
+		<div class="modal-body">
+			<div class="control-group">
+				
+				<label for="id" class="control-label">分销商ID</label>
+				<div class="controls">
+					<input type="text" placeholder="分销商ID" name="id" value="1" readonly="readonly">
+				</div>
+				<label for="no" class="control-label">分销商编号</label>
+				<div class="controls">
+					<input type="text" placeholder="分销商编号" name="no" readonly="readonly" value="20131201">
+				</div>
+				
+				<label for="companyName" class="control-label">企业名称</label>
+				<div class="controls">
+					<input type="text" placeholder="企业名称" name="companyName" autocomplete="on" required="required" pattern="">
+				</div>
+				
+				<label for="username" class="control-label">登录名</label>
+				<div class="controls">
+					<input type="text" placeholder="登录名" name="username" autocomplete="on" required="required" pattern="">
+				</div>
+				
+				<label for="password" class="control-label">登录密码</label>
+				<div class="controls">
+					<input type="text" placeholder="登录密码" name="password" autocomplete="on" required="required" pattern="">
+				</div>
+				
+				<label for="repassword" class="control-label">重复密码</label>
+				<div class="controls">
+					<input type="text" placeholder="重复密码" name="repassword" autocomplete="on" required="required" pattern="">
+				</div>
+				
+				<label for="linkman" class="control-label">联系人</label>
+				<div class="controls">
+					<input type="text" placeholder="联系人" id="linkman" autocomplete="on" required="required" pattern="">
+				</div>
+				
+				<label for="phone" class="control-label">电话</label>
+				<div class="controls">
+					<input type="text" placeholder="电话" name="phone" autocomplete="on" required="required" pattern="">
+				</div>
+				
+				<label for="qq" class="control-label">QQ</label>
+				<div class="controls">
+					<input type="text" placeholder="QQ" name="qq" autocomplete="on" required="required" pattern="">
+				</div>
+				
+				<label for="email" class="control-label">邮箱</label>
+				<div class="controls">
+					<input type="text" placeholder="邮箱" id="email" autocomplete="on" required="required" pattern="">
+				</div>
+			</div>
+		</div>
+		<div class="modal-footer">
+			<button id="update" class="btn btn-primary" onclick="update()">修改</button>
+			<button class="btn" data-dismiss="modal" aria-hidden="true">取消</button>
+		</div>
+	</div>
+	<!-- 	E分销商修改的弹出 -->
+	<script type="text/javascript">
+		$('.form_date').datetimepicker({
+			language : 'zh-CN',
+	        weekStart: 1,
+	        todayBtn:  1,
+			autoclose: 1,
+			todayHighlight: 1,
+			startView: 3,
+			minView: 3,
+			forceParse: 0
+		});
+	</script>
+</body>
+</html>

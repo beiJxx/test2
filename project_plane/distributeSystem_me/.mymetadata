@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="distributeSystem_me"
+  id="myeclipse.1414974459374"
+  context-root="/distributeSystem"
+  j2ee-spec="5.0"
+  archive="distributeSystem_me.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+

@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>航班管理</title>
+<style type="text/css">
+	div{
+		margin-bottom: 10px;
+	}
+</style>
+</head>
+<link rel="stylesheet" type="text/css"
+	href="../css/bootstrap-responsive.min.css">
+<link rel="stylesheet" type="text/css"
+	href="../css/bootstrap.min.css">
+<link href="../css/bootstrap-datetimepicker.min.css"
+	rel="stylesheet" media="screen">
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script type="text/javascript">
+	function update() {
+		$("#update").attr("data-dismiss", "modal");
+	}
+	function save() {
+		$("#save").attr("data-dismiss", "modal");
+	}
+	function modify(id, item) {
+		alert(id);
+		$(item).attr("data-toggle", "modal");
+	}
+</script>
+<body>
+	<form class="bs-docs-example form-search" 
+		method="post">
+		<font style="font-weight: bold;">查询条件:&nbsp;&nbsp;&nbsp;</font> <label
+			for="cityFrom">出发城市：</label> <input type="text" name="cityFrom"
+			class="input-mini search-query" placeholder="出发城市"> <label
+			for="cityTo">到达城市：</label> <input type="text" name="cityTo"
+			class="input-mini search-query" placeholder="到达城市"> 
+		<label  for="no">航班编号：</label> <input
+			type="text" name="roleName" class="input-mini search-query"
+			placeholder="航班号"> <label for="company">航空公司：</label> <input
+			type="text" name="company" class="input-mini search-query"
+			placeholder="航空公司"><br /> 
+			<label class="offset1"
+			for="stime">出发时间：</label>
+		<div class="controls input-append date form_time" data-date=""
+			data-date-format="hh:ii" data-link-field="dtp_input3"
+			data-link-format="hh:ii">
+			<input name="stime" style="width: 40px;" type="text" value=""
+				readonly> <span class="add-on"><i class="icon-remove"></i>
+			</span> <span class="add-on"><i class="icon-th"></i>
+			</span>
+		</div>
+		<input type="hidden" id="dtp_input3" value="" />
+		<label for="etime">到达时间：</label>
+		<div class="controls input-append date form_time" data-date=""
+			data-date-format="hh:ii" data-link-field="dtp_input3"
+			data-link-format="hh:ii">
+			<input name="etime" style="width: 40px;" type="text" value=""
+				readonly> <span class="add-on"><i class="icon-remove"></i>
+			</span> <span class="add-on"><i class="icon-th"></i>
+			</span>
+		</div>
+		<button class="btn" type="submit">查询</button>
+	</form>
+	<table style="width: 100%" class="table table-bordered table-hover table-striped">
+		<thead>
+			<tr>
+				<th><a href="#myModal" class="btn" data-toggle="modal">添加航班</a>
+				</th>
+			</tr>
+			<tr>
+				<td>ID</td>
+				<th>航班号</th>
+				<th>航班机型</th>
+				<th>总座位数</th>
+				<th>出发城市</th>
+				<th>到达城市</th>
+				<th>时间区间</th>
+				<th>航空公司</th>
+				<th>价格</th>
+				<th>操作</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>1</td>
+				<td>10001</td>
+				<td>332</td>
+				<td>111</td>
+				<td>南京</td>
+				<td>乌鲁木齐</td>
+				<td>07:40-10:50</td>
+				<td>南方航空</td>
+				<td>
+					<label>经济舱：￥200</label>
+					<label>头等舱：￥800</label>
+				</td>
+				<td><label><a href="#myModify" onclick="modify('1',this)">修改</a></label>
+					<label><a href="" onclick="return confirm('确定要删除吗？')">删除</a></label>
+				</td>
+			</tr>
+			<tr>
+				<td>2</td>
+				<td>10002</td>
+				<td>334</td>
+				<td>123</td>
+				<td>北京</td>
+				<td>香港</td>
+				<td>11:15-14:20</td>
+				<td>东方航空</td>
+				<td><label>经济舱：￥200</label>
+						<label>头等舱：￥800</label></td>
+				<td><label><a href="">修改</a></label>
+				<label><a href="" onclick="return confirm('确定要删除吗？')">删除</a></label>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<div class="bs-docs-example">
+		<div class="pagination pagination-centered">
+			<ul>
+				<li class="disabled"><a href="#">«</a></li>
+				<li class="active"><a href="#">1</a></li>
+				<li><a href="#">2</a></li>
+				<li><a href="#">3</a></li>
+				<li><a href="#">4</a></li>
+				<li><a href="#">5</a></li>
+				<li><a href="#">»</a></li>
+			</ul>
+		</div>
+	</div>
+	<!-- 	S航班增加的弹出 -->
+	<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog"
+		aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-header">
+			<h3 align="center">航班增加</h3>
+		</div>
+		<div class="modal-body">
+			<form class="bs-docs-example form-horizontal">
+				<div class="control-group">
+
+					<label for="no" class="control-label">航班号</label>
+					<div class="controls">
+						<input type="text" placeholder="航班号" name="no" required="required"
+							pattern="">
+					</div>
+					<label for="company" class="control-label">航空公司</label>
+					<div class="controls">
+						<input type="text" placeholder="航空公司" name="company"
+							required="required" pattern="">
+					</div>
+					<label for="cityFrom" class="control-label">航班机型</label>
+					<div class="controls">
+						<input type="text" placeholder="航班机型" name="cityFrom"
+							required="required" pattern="">
+					</div>
+					<label for="cityFrom" class="control-label">总座位数</label>
+					<div class="controls">
+						<input type="text" placeholder="总座位数" name="cityFrom"
+							required="required" pattern="">
+					</div>
+					<label for="cityFrom" class="control-label">出发城市</label>
+					<div class="controls">
+						<input type="text" placeholder="出发城市" name="cityFrom"
+							required="required" pattern="">
+					</div>
+
+					<label for="cityTo" class="control-label">到达城市</label>
+					<div class="controls">
+						<input type="text" placeholder="到达城市" name="cityTo"
+							required="required" pattern="">
+					</div>
+					
+					<label for="price" class="control-label">价格</label>
+					<div class="controls ">
+						经济舱：￥<input type="text" placeholder="00.00" name="price" class="span2"><br/>
+						头等舱：￥<input type="text" placeholder="00.00" name="price" class="span2">
+					</div>
+
+					<label for="cityTo" class="control-label">出发时间</label>
+					<div class="controls input-append date form_time" data-date=""
+						data-date-format="hh:ii" data-link-field="dtp_input3"
+						data-link-format="hh:ii">
+						<input name="etime"  type="text" value=""
+							readonly> <span class="add-on"><i
+							class="icon-remove"></i>
+						</span> <span class="add-on"><i class="icon-th"></i>
+						</span>
+					</div>
+
+					<label for="cityTo" class="control-label">到达时间</label>
+					<div class="controls input-append date form_time" data-date=""
+						data-date-format="hh:ii" data-link-field="dtp_input3"
+						data-link-format="hh:ii">
+						<input name="etime" type="text" value=""
+							readonly> <span class="add-on"><i
+							class="icon-remove"></i>
+						</span> <span class="add-on"><i class="icon-th"></i>
+						</span>
+					</div>
+
+
+				</div>
+			</form>
+		</div>
+		<div class="modal-footer">
+			<button id="save" class="btn btn-primary" onclick="save()">添加</button>
+			<button class="btn" data-dismiss="modal" aria-hidden="true">取消</button>
+		</div>
+	</div>
+	<!-- 	E航班增加的弹出 -->
+	<!-- 	S航班修改的弹出 -->
+	<div id="myModify" class="modal hide fade" tabindex="-1" role="dialog"
+		aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-header">
+			<h3 align="center">航班修改</h3>
+		</div>
+		<div class="modal-body">
+			<form class="bs-docs-example form-horizontal">
+				<div class="control-group">
+					<label for="id" class="control-label">航班ID</label>
+						<div class="controls">
+							<input type="text" readonly="readonly" name="no" value="1">
+						</div>
+					<label for="no" class="control-label">航班号</label>
+					<div class="controls">
+						<input type="text" name="no" value="0001">
+					</div>
+					<label for="company" class="control-label">航空公司</label>
+					<div class="controls">
+						<input type="text" value="sss" name="company"
+							required="required" pattern="">
+					</div>
+					<label for="cityFrom" class="control-label">总座位数</label>
+					<div class="controls">
+						<input type="text" placeholder="总座位数" name="cityFrom"
+							required="required" pattern="">
+					</div>
+					<label for="cityFrom" class="control-label">出发城市</label>
+					<div class="controls">
+						<input type="text" name="cityFrom"
+							required="required" pattern="">
+					</div>
+
+					<label for="cityTo" class="control-label">到达城市</label>
+					<div class="controls">
+						<input type="text" name="cityTo"
+							required="required" pattern="">
+					</div>
+					
+					<label for="price" class="control-label">价格</label>
+					<div class="controls ">
+						经济舱：￥<input type="text" placeholder="00.00" name="price" class="span2"><br/>
+						头等舱：￥<input type="text" placeholder="00.00" name="price" class="span2">
+					</div>
+
+					<label for="cityTo" class="control-label">出发时间</label>
+					<div class="controls input-append date form_time" data-date=""
+						data-date-format="hh:ii" data-link-field="dtp_input3"
+						data-link-format="hh:ii">
+						<input name="etime"  type="text" value="12:22"
+							readonly> <span class="add-on"><i
+							class="icon-remove"></i>
+						</span> <span class="add-on"><i class="icon-th"></i>
+						</span>
+					</div>
+
+					<label for="cityTo" class="control-label">到达时间</label>
+					<div class="controls input-append date form_time" data-date=""
+						data-date-format="hh:ii" data-link-field="dtp_input3"
+						data-link-format="hh:ii">
+						<input name="etime" type="text" value="22:22"
+							readonly> <span class="add-on"><i
+							class="icon-remove"></i>
+						</span> <span class="add-on"><i class="icon-th"></i>
+						</span>
+					</div>
+
+
+				</div>
+			</form>
+		</div>
+		<div class="modal-footer">
+			<button id="update" class="btn btn-primary" onclick="update()">修改</button>
+			<button class="btn" data-dismiss="modal" aria-hidden="true">取消</button>
+		</div>
+	</div>
+	<!-- 	E机票修改的弹出 -->
+	<script type="text/javascript"
+		src="../js/bootstrap-datetimepicker.min.js" charset="UTF-8"></script>
+	<script type="text/javascript"
+		src="../js/bootstrap-datetimepicker.zh-CN.js" charset="UTF-8"></script>
+	<script type="text/javascript">
+		$('.form_time').datetimepicker({
+			language : 'zh-CN',
+			weekStart : 1,
+			todayBtn : 1,
+			autoclose : 1,
+			todayHighlight : 1,
+			startView : 1,
+			minView : 0,
+			maxView : 1,
+			forceParse : 1
+		});
+	</script>
+</body>
+</html>

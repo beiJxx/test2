@@ -1,0 +1,73 @@
+.login_form{
+width:600px;
+height:250px;
+background:url(../images/login_bg.png) no-repeat center top;
+margin:20px 0 0 145px;
+float:left;
+padding:0px 0 0 0px;
+} 
+.form{
+width:600px;
+float:left;
+clear:both;
+}
+label {font-size:11px; font-weight:bold; color:#666;}
+body
+{
+background:url(../images/bg.jpg) no-repeat center top ;
+background-size:100%,100%;
+font-family:Arial, Helvetica, sans-serif;
+padding:0;
+font-size:12px;
+margin:0 auto;
+color: #0e4354;
+}
+a{
+color:#256c89;
+}
+h3{
+font-size:18px;
+color:#256c89;
+font-weight:normal;
+padding:15px 0 5px 20px;
+margin:0px;
+float:left;
+clear:both;
+}
+a.forgot_pass{
+float:right;
+color:#256c89;
+text-decoration:none;
+background:url(../images/help.png) no-repeat left;
+padding:0 0 0 18px;
+display:block;
+margin:15px 20px 0 0;
+}
+#main_container{
+margin:0 auto;
+width:900px;
+padding:0px 0 0px 0;
+}
+.header_login{
+width:600px;
+margin:auto;
+}
+.logo{
+float:left;
+padding:35px 0 0 0;
+}
+.footer_login{width:600px;margin:auto;}
+.left_footer_login{float:left;padding:15px 0 0 10px;color:#a8549b;font-size:11px;}
+.left_footer_login a{color:#FFFFFF;text-decoration:none;}
+.right_footer_login{float:right;padding:15px 10px 0 0;}
+.loginBtn{
+		background-image:url('../images/loginBtn.gif'); 
+		border: none;
+		width: 70px;
+		height: 30px;
+		border-radius: 5px 5px 5px 5px;
+		margin-top: 20px;
+}
+input{
+	border-radius:5px 5px 5px 5px;
+}

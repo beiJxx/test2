@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>等级管理</title>
+</head>
+<link rel="stylesheet" type="text/css" href="../../../../css/bootstrap-responsive.min.css">
+<link rel="stylesheet" type="text/css" href="../../../../css/bootstrap.min.css">
+<link href="../../../../css/bootstrap.min.css" rel="stylesheet" media="screen">
+<link href="../../../../css/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
+<script type="text/javascript" src="../../../../js/jquery.js"></script>
+<script src="../../../../js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../../../js/transition.js"></script>
+<script type="text/javascript" src="../../../../js/modal.js"></script>
+<script type="text/javascript" src="../../../../js/button.js"></script>
+
+<script type="text/javascript">
+		function update(){
+			$("#update").attr("data-dismiss","modal");
+		}
+		function save(){
+			$("#save").attr("data-dismiss","modal");
+		}
+		function modify(id,item){
+			alert(id);
+			$(item).attr("data-toggle","modal");
+		}
+</script>
+<body>
+	<table class="table table-bordered table-hover table-striped" style="width: 100%">
+		<thead>
+			<tr>
+				<th><a href="#myModal" class="btn" data-toggle="modal">添加等级</a>
+				</th>
+			</tr>
+			<tr>
+				<td>ID</td>
+				<th>等级</th>
+				<th>售出率（≥）</th>
+				<th>分票份额</th>
+				<th>保证金金额</th>
+				<th>操作</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>1</td>
+				<td>A</td>
+				<td>90%</td>
+				<td>4N</td>
+				<td>￥234</td>
+				<td><a href="#myModify" onclick="modify('1',this)">修改</a>&nbsp;&nbsp;&nbsp; <a href=""
+					onclick="return confirm('确定要删除吗？')">删除</a></td>
+			</tr>
+			<tr>
+				<td>2</td>
+				<th>B</th>
+				<th>80%</th>
+				<th>3N</th>
+				<td>￥34234</td>
+				<td><a href="#myModify" onclick="modify('1',this)">修改</a>&nbsp;&nbsp;&nbsp; <a href=""
+					onclick="return confirm('确定要删除吗？')">删除</a></td>
+			</tr>
+			<tr>
+				<td>3</td>
+				<th>C</th>
+				<th>70%</th>
+				<th>2N</th>
+				<td>￥2342342</td>
+				<td><a href="#myModify" onclick="modify('1',this)">修改</a>&nbsp;&nbsp;&nbsp; <a href=""
+					onclick="return confirm('确定要删除吗？')">删除</a></td>
+			</tr>
+			<tr>
+				<td>4</td>
+				<th>D</th>
+				<th>-</th>
+				<th>1N</th>
+				<td>￥98432</td>
+				<td><a href="#myModify" onclick="modify('1',this)">修改</a>&nbsp;&nbsp;&nbsp; <a href=""
+					onclick="return confirm('确定要删除吗？')">删除</a></td>
+			</tr>
+		</tbody>
+	</table>
+	<div class="bs-docs-example">
+		<div class="pagination pagination-centered">
+			<ul>
+				<li class="disabled"><a href="#">«</a>
+				</li>
+				<li class="active"><a href="#">1</a>
+				</li>
+				<li><a href="#">2</a>
+				</li>
+				<li><a href="#">3</a>
+				</li>
+				<li><a href="#">4</a>
+				</li>
+				<li><a href="#">5</a>
+				</li>
+				<li><a href="#">»</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<!-- 	S等级增加的弹出 -->
+	<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog"
+		aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-header">
+			<h3 align="center">等级增加</h3>
+		</div>
+		<div class="modal-body">
+		<form class="bs-docs-example form-horizontal">
+			<div class="control-group">
+			
+				<label for="level" class="control-label">等级</label>
+				<div class="controls">
+					<input type="text" placeholder="等级" name="level" required="required" pattern="">
+				</div>
+				
+				<label for="rate" class="control-label">售出率</label>
+				<div class="controls">
+              		<input type="text" placeholder="00.00" name="price" class="span3">
+				</div>
+				<label for="price" class="control-label">出票份额</label>
+				<div class="controls">
+              		<input type="text" placeholder="00" name="price" class="span3">
+				</div>
+				<label for="price" class="control-label">保证金金额</label>
+				<div class="controls">
+              		<input type="text" placeholder="00" name="price" class="span3">
+				</div>
+			</div></form>
+		</div>
+		<div class="modal-footer">
+			<button id="save" class="btn btn-primary" onclick="save()">添加</button>
+			<button class="btn" data-dismiss="modal" aria-hidden="true">取消</button>
+		</div>
+	</div>
+	<!-- 	E等级增加的弹出 -->
+	<!-- 	S等级修改的弹出 -->
+	<div id="myModify" class="modal hide fade" tabindex="-1" role="dialog"
+		aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-header">
+			<h3 align="center">等级修改</h3>
+		</div>
+		<div class="modal-body">
+		<form class="bs-docs-example form-horizontal">
+			<div class="control-group">
+			
+				<label for="id" class="control-label">ID</label>
+				<div class="controls">
+					<input type="text" placeholder="ID" name="id" readonly="readonly">
+				</div>
+				<label for="level" class="control-label">等级</label>
+				<div class="controls">
+					<input type="text" placeholder="等级" name="level" required="required" pattern="">
+				</div>
+				
+				<label for="rate" class="control-label">售出率</label>
+				<div class="controls">
+              		<input type="text" placeholder="00.00" name="price" class="span3">
+				</div>
+				<label for="price" class="control-label">出票份额</label>
+				<div class="controls">
+              		<input type="text" placeholder="00.00" name="price" class="span3">
+				</div>
+				<label for="price" class="control-label">保证金金额</label>
+				<div class="controls">
+              		<input type="text" placeholder="00" name="price" class="span3">
+				</div>
+			</div></form>
+		</div>
+		<div class="modal-footer">
+			<button id="update" class="btn btn-primary" onclick="update()">修改</button>
+			<button class="btn" data-dismiss="modal" aria-hidden="true">取消</button>
+		</div>
+	</div>
+	<!-- 	E机票修改的弹出 -->
+</body>
+</html>

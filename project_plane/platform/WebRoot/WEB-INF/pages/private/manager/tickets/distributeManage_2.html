@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>机票分销</title>
+<style type="text/css">
+	div{
+		margin-bottom: 10px;
+	}
+</style>
+<script type="text/javascript">
+		function update(){
+			$("#update").attr("data-dismiss","modal");
+		}
+		function save(){
+			$("#save").attr("data-dismiss","modal");
+		}
+		function modify(id,item){
+			alert(id);
+			$(item).attr("data-toggle","modal");
+		}
+	</script>
+</head>
+<link rel="stylesheet" type="text/css"
+	href="../../../../css/bootstrap-responsive.min.css">
+<link rel="stylesheet" type="text/css"
+	href="../../../../css/bootstrap.min.css">
+<link href="../../../../css/bootstrap.min.css" rel="stylesheet"
+	media="screen">
+<link href="../../../../css/bootstrap-datetimepicker.min.css"
+	rel="stylesheet" media="screen">
+<script type="text/javascript" src="../../../../js/jquery.js"></script>
+<script src="../../../../js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../../../js/transition.js"></script>
+<script type="text/javascript" src="../../../../js/modal.js"></script>
+<script type="text/javascript" src="../../../../js/button.js"></script>
+<body>
+	<div style="font-size: 27px;margin-top: 10px">
+		<a href="distributeManage_1.html">
+			<img alt="返回" src="../../../../images/back.png" onclick=""></img></a>
+			2013-12-21日  IU0001次航班 共100张 分配结果
+	</div>
+		
+	
+	<div class="message">
+		<table  class="table table-condensed" style="width: 100%">
+              <thead>
+                <tr>
+                  <th>序号</th>
+                  <th>分销商</th>
+                  <th>等级</th>
+                  <th>机票总数</th>
+                  <th>头等舱票数</th>
+                  <th>经济舱票数</th>
+                </tr>
+              </thead>
+              <tbody  id="aas">
+                <tr>
+                  <td>1</td>
+                  <td>Mark</td>
+                  <td>A</td>
+                  <td>43</td>
+                  <td>13</td>
+                  <td>30</td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>Jacob</td>
+                  <td>B</td>
+                  <td>42</td>
+                  <td>12</td>
+                  <td>30</td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>dasdsa</td>
+                  <td>D</td>
+                  <td>41</td>
+                  <td>8</td>
+                  <td>33</td>
+                </tr>
+              </tbody>
+         </table>
+		
+    </div>
+</body>
+</html>

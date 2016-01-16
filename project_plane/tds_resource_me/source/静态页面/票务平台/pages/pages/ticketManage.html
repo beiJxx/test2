@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>机票管理</title>
+<style type="text/css">
+	div{
+		margin-bottom: 10px;
+	}
+</style>
+</head>
+<link rel="stylesheet" type="text/css"
+	href="../css/bootstrap-responsive.min.css">
+<link rel="stylesheet" type="text/css"
+	href="../css/bootstrap.min.css">
+<link href="../css/bootstrap.min.css" rel="stylesheet"
+	media="screen">
+<link href="../css/bootstrap-datetimepicker.min.css"
+	rel="stylesheet" media="screen">
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../js/transition.js"></script>
+<script type="text/javascript" src="../js/modal.js"></script>
+<script type="text/javascript" src="../js/button.js"></script>
+
+<body>
+	<form class="bs-docs-example form-search" 
+		method="post">
+		<font style="font-weight: bold;">查询条件:&nbsp;&nbsp;&nbsp;</font>
+				
+		<label for="no">航班号：</label> 
+		<input type="text" name="no" class="input-mini search-query" placeholder="航班号" /> 
+		
+	
+		<button class="btn" type="submit">查询</button>
+	</form>
+	
+	<div class="message">
+	<table style="width: 100%" class="table table-bordered table-hover table-striped">
+		<thead>
+			<tr>
+				<th>编号</th>
+				<th>航班号</th>
+				<th>出发城市</th>
+				<th>到达城市</th>
+				<th>时间区间</th>
+				<th>航空公司</th>
+				<th>操作</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>1</td>
+				<th>10001</th>
+				<th>南京</th>
+				<th>乌鲁木齐</th>
+				<th>07:40-10:50</th>
+				<th>南方航空</th>
+				<td><a href="ticketManage_1.html" >机票管理</a>
+				</td>
+			</tr>
+			<tr>
+				<td>2</td>
+				<th>10002</th>
+				<th>北京</th>
+				<th>香港</th>
+				<th>11:15-14:20</th>
+				<th>东方航空</th>
+				<td><a href="">机票管理</a> 
+				</td>
+			</tr>
+		</tbody>
+	</table>
+
+
+    </div>
+        
+	
+	<div class="bs-docs-example">
+		<div class="pagination pagination-centered">
+			<ul>
+				<li class="disabled"><a href="#">«</a></li>
+				<li class="active"><a href="#">1</a></li>
+				<li><a href="#">2</a></li>
+				<li><a href="#">3</a></li>
+				<li><a href="#">4</a></li>
+				<li><a href="#">5</a></li>
+				<li><a href="#">»</a></li>
+			</ul>
+		</div>
+	</div>
+	<script type="text/javascript"
+		src="../js/bootstrap-datetimepicker.min.js" charset="UTF-8"></script>
+	<script type="text/javascript"
+		src="../js/bootstrap-datetimepicker.zh-CN.js" charset="UTF-8"></script>
+	<script type="text/javascript">
+		$('.form_time').datetimepicker({
+			language : 'zh-CN',
+			weekStart : 1,
+			todayBtn : 1,
+			autoclose : 1,
+			todayHighlight : 1,
+			startView : 2,
+			minView : 2,
+			maxView : 4,
+			forceParse : 1
+		});
+	</script>
+</body>
+</html>

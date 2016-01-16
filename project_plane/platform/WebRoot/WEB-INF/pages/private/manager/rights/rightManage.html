@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>权限管理</title>
+</head>
+<link rel="stylesheet" type="text/css"
+	href="../../../../css/bootstrap-responsive.min.css">
+<link rel="stylesheet" type="text/css"
+	href="../../../../css/bootstrap.min.css">
+
+<script src="../../../../js/jquery.js"></script>
+<script src="../../../../js/bootstrap.min.js"></script>
+<script type="text/javascript">
+		function update(){
+			$("#update").attr("data-dismiss","modal");
+		}
+		function modify(id,item){
+			alert(id);
+			$(item).attr("data-toggle","modal");
+		}
+	</script>
+<body>
+	<form class="bs-docs-example form-search">
+		
+		<font style="font-weight: bold;">查询条件:&nbsp;&nbsp;&nbsp;</font>
+		<label for="moduleName">模块名称：</label> 
+		<input type="text" name="moduleName" class="input-small search-query" placeholder="模块名称">
+		&nbsp;&nbsp;&nbsp;
+		<label for="moduleName">权限名称：</label>
+		<input	type="text" name="rightName" class="input-small search-query" placeholder="权限名称">
+		<button class="btn" type="submit">查询</button>
+	</form>
+	<table style="width: 100%" class="table table-bordered table-hover table-striped">
+		<thead>
+			<tr>
+				<th>权限ID</th>
+				<th>权限名称</th>
+				<th>权限URL</th>
+				<th>权限所在模块</th>
+				<th>权限操作名称</th>
+				<th>操作</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>1</td>
+				<td>权限浏览</td>
+				<td>browseRight</td>
+				<td>权限管理</td>
+				<td>权限浏览</td>
+				<td><a href="#myModify" onclick="modify('1',this)">修改</a></td>
+			</tr>
+			<tr>
+				<td>2</td>
+				<td>权限增加</td>
+				<td>addnewRight</td>
+				<td>权限管理</td>
+				<td>权限增加</td>
+				<td><a href="#myModify" onclick="modify('1',this)">修改</a></td>
+			</tr>
+
+			<tr>
+				<td>3</td>
+				<td>权限修改</td>
+				<td>updateRight</td>
+				<td>权限管理</td>
+				<td>权限修改</td>
+				<td><a href="#myModify" onclick="modify('1',this)">修改</a></td>
+			</tr>
+
+			<tr>
+				<td>4</td>
+				<td>权限删除</td>
+				<td>deleteRight</td>
+				<td>权限管理</td>
+				<td>权限删除</td>
+				<td><a href="#myModify" onclick="modify('1',this)">修改</a></td>
+			</tr>
+		</tbody>
+	</table>
+	<div class="bs-docs-example">
+		<div class="pagination pagination-centered">
+			<ul>
+				<li class="disabled"><a href="#">«</a></li>
+				<li class="active"><a href="#">1</a></li>
+				<li><a href="#">2</a></li>
+				<li><a href="#">3</a></li>
+				<li><a href="#">4</a></li>
+				<li><a href="#">5</a></li>
+				<li><a href="#">»</a></li>
+			</ul>
+		</div>
+	</div>
+	<!-- 	S权限修改的弹出 -->
+	<div id="myModify" class="modal hide fade" tabindex="-1" role="dialog"
+		aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-header">
+			<h3 align="center">权限修改</h3>
+		</div>
+		<div class="modal-body">
+			<div class="control-group">
+				<label for="id" class="control-label">权限ID</label>
+				<div class="controls">
+					<input type="text" placeholder="权限ID"  readonly="readonly">
+				</div>
+			</div>
+			<div class="control-group">
+				<label for="username" class="control-label">权限名城</label>
+				<div class="controls">
+					<input type="text" placeholder="权限名城" id="username" autocomplete="on" required="required" pattern="">
+				</div>
+			</div>
+			<div class="control-group">
+				<label for="username" class="control-label">权限url</label>
+				<div class="controls">
+					<input type="text" placeholder="权限url" id="username" autocomplete="on" readonly="readonly">
+				</div>
+			</div>
+			<div class="control-group">
+				<label for="optionsCheckbox" class="control-label">模块名称</label>
+				<div class="controls">
+					
+					<select style="width: auto;margin-bottom: 0px;">
+						<option value="">资费删除 </option>
+						<option value="">帐务帐号查询 </option>
+						<option value="">权限删除 </option>
+						<option value="">权限修改 </option>
+						<option value="">资费浏览</option>
+						<option value="">角色删除</option>
+						<option value="">超级管理员修改</option>
+						<option value="">权限增加 </option>
+						<option value="">管理员删除</option>
+						<option value="">角色增加 </option>
+				</select>
+              </div>
+			</div>
+			<div class="control-group">
+				<label for="optionsCheckbox" class="control-label">操作名称</label>
+				<div class="controls">
+					
+					<select style="width: auto;margin-bottom: 0px;">
+						<option value="">资费删除 </option>
+						<option value="">帐务帐号查询 </option>
+						<option value="">权限删除 </option>
+						<option value="">权限修改 </option>
+						<option value="">资费浏览</option>
+						<option value="">角色删除</option>
+						<option value="">超级管理员修改</option>
+						<option value="">权限增加 </option>
+						<option value="">管理员删除</option>
+						<option value="">角色增加 </option>
+				</select>
+              </div>
+			</div>
+		</div>
+		<div class="modal-footer">
+			<button id="update" class="btn btn-primary" onclick="update()">修改</button>
+			<button class="btn" data-dismiss="modal" aria-hidden="true">取消</button>
+		</div>
+	</div>
+	<!-- 	E权限修改的弹出 -->
+</body>
+</html>

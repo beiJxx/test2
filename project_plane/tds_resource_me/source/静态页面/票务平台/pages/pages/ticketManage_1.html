@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>机票管理</title>
+<style type="text/css">
+	div{
+		margin-bottom: 10px;
+	}
+</style>
+<script type="text/javascript">
+		function update(){
+			$("#update").attr("data-dismiss","modal");
+		}
+		function save(){
+			$("#save").attr("data-dismiss","modal");
+		}
+		function modify(id,item){
+			alert(id);
+			$(item).attr("data-toggle","modal");
+		}
+	</script>
+</head>
+<link rel="stylesheet" type="text/css"
+	href="../css/bootstrap-responsive.min.css">
+<link rel="stylesheet" type="text/css"
+	href="../css/bootstrap.min.css">
+<link href="../css/bootstrap.min.css" rel="stylesheet"
+	media="screen">
+<link href="../css/bootstrap-datetimepicker.min.css"
+	rel="stylesheet" media="screen">
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../js/transition.js"></script>
+<script type="text/javascript" src="../js/modal.js"></script>
+<script type="text/javascript" src="../js/button.js"></script>
+
+<body>
+	<form class="bs-docs-example form-search" 
+		method="post">
+	<div style="font-size: 27px;margin-top: 10px">
+		<a href="ticketManage.html"><img alt="返回" src="../images/back.png" onclick=""></img></a>
+		IU0001次航班
+		<span class="offset5" style="font-size: 20px" for="sdate">日期：</span>
+        <div class="controls input-append date form_time" data-date="" data-date-format="yyyy-MM-dd" data-link-field="dtp_input2" data-link-format="yyyy-MM-dd">
+             <input size="8" style="width: 80px;" type="text" value="" readonly>
+             <span class="add-on"><i class="icon-remove"></i></span>
+			 <span class="add-on"><i class="icon-th"></i></span>
+        </div>
+		<input type="hidden" id="dtp_input2" value="" />
+		<button class="btn" type="submit">查询</button>
+		<a class="btn btn-danger" href="#myModal" data-toggle="modal">添加</a>
+		<a class="btn btn-success">一键提交</a>
+	</div>
+		
+	
+	</form>
+	<div class="message">
+	<table style="width: 100%" class="table table-bordered table-hover table-striped">
+		<thead>
+			<tr>
+				<th style="width:140px;"></th>
+				<th>序号</th>
+				<th>日期</th>
+				<th>票数</th>
+				<th>操作</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td></td>
+				<td>1</td>
+				<td>2013-12-22</td>
+				<td>
+					经济舱：200   头等舱：80
+				</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>
+					<a href="#ticketModify" onclick="modify('1',this)">修改</a>
+					<a href="" onclick="return confirm('确定要删除吗？')">删除</a>
+				</td>
+				<td>2</td>
+				<td>2013-12-04</td>
+				<td>经济舱：200   头等舱：80</td>
+				<td><a href="" onclick="">提交</a> </td>
+			</tr>
+		</tbody>
+	</table>
+
+
+    </div>
+        
+	
+	<div class="bs-docs-example">
+		<div class="pagination pagination-centered">
+			<ul>
+				<li class="disabled"><a href="#">«</a></li>
+				<li class="active"><a href="#">1</a></li>
+				<li><a href="#">2</a></li>
+				<li><a href="#">3</a></li>
+				<li><a href="#">4</a></li>
+				<li><a href="#">5</a></li>
+				<li><a href="#">»</a></li>
+			</ul>
+		</div>
+	</div>
+	
+	<!-- 	S票务增加的弹出 -->
+	<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-header">
+			<h3 align="center">IU0001次航班</h3>
+		</div>
+		<div class="modal-body">
+			<form class="bs-docs-example form-horizontal">
+				<div class="control-group">
+					<label for="date" class="control-label">日期：</label>
+        			<div class="controls date form_time" data-date="" data-date-format="yyyy-MM-dd" data-link-field="dtp_input2" data-link-format="yyyy-MM-dd">
+             			<input size="8" style="width: 80px;" type="text" value="" readonly>
+             			<span class="add-on"><i class="icon-remove"></i></span>
+			 			<span class="add-on"><i class="icon-th"></i></span>
+        			</div>
+			        <label for="duration" class="control-label">连续：</label>
+					<div class="controls">
+						<input type="text" name="duration" style="width: 30px;" value="1"> 天
+					</div>
+					<label for="num" class="control-label">票数：</label>
+					<div class="controls">
+						经济舱：<input type="text" name="num"  value="" placeholder="票数"/><br/>
+						头等舱：<input type="text" name="num"  value="" placeholder="票数"/> 
+					</div>
+		
+				</div></form>
+		</div>
+		<div class="modal-footer">
+			<button id="save" class="btn btn-primary" onclick="save()">添加</button>
+			<button class="btn" data-dismiss="modal" aria-hidden="true">取消</button>
+		</div>
+	</div>
+	<!-- 	E票务增加的弹出 -->
+	<!-- 	S票务修改的弹出 -->
+	<div id="ticketModify" class="modal hide fade" tabindex="-1" role="dialog"
+		aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-header">
+			<h3 align="center">IU0001次航班</h3>
+		</div>
+		<div class="modal-body">
+		<form class="bs-docs-example form-horizontal">
+			<div class="control-group">
+		
+		<lable for="date" class="control-label">ID：</lable>
+        <div class="controls">
+             <input size="8" type="text" value="1" readonly />
+        </div>
+			
+		<lable for="date" class="control-label">日期：</lable>
+        <div class="controls">
+             <input size="8" type="text" value="2013-12-44" readonly />
+        </div>
+		
+		<label for="num" class="control-label">票数：</label>
+		<div class="controls">
+			经济舱：<input type="text" name="num"  value="" placeholder="票数"/><br/>
+			头等舱：<input type="text" name="num"  value="" placeholder="票数"/> 
+		</div>
+		
+		</div></div>
+		<div class="modal-footer">
+			<button id="save" class="btn btn-primary" onclick="save()">修改</button>
+			<button class="btn" data-dismiss="modal" aria-hidden="true">取消</button>
+		</div>
+		</form>
+	</div>
+	<!-- 	E票务修改的弹出 -->
+	<script type="text/javascript"
+		src="../js/bootstrap-datetimepicker.min.js" charset="UTF-8"></script>
+	<script type="text/javascript"
+		src="../js/bootstrap-datetimepicker.zh-CN.js" charset="UTF-8"></script>
+	<script type="text/javascript">
+		$('.form_time').datetimepicker({
+			language : 'zh-CN',
+			weekStart : 1,
+			todayBtn : 1,
+			autoclose : 1,
+			todayHighlight : 1,
+			startView : 2,
+			minView : 2,
+			maxView : 4,
+			forceParse : 1
+		});
+	</script>
+</body>
+</html>

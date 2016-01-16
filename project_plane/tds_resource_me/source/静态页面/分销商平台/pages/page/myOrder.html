@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>我的订单</title>
+<style type="text/css">
+	div{
+		margin-bottom: 10px;
+	}
+</style>
+<script type="text/javascript">
+		function update(){
+			$("#update").attr("data-dismiss","modal");
+		}
+		function save(){
+			$("#save").attr("data-dismiss","modal");
+		}
+		function modify(id,item){
+			alert(id);
+			$(item).attr("data-toggle","modal");
+		}
+	</script>
+</head>
+<link rel="stylesheet" type="text/css"
+	href="../css/bootstrap-responsive.min.css">
+<link rel="stylesheet" type="text/css"
+	href="../css/bootstrap.min.css">
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<body>
+			
+	
+	<div class="message">
+		<table  class="table table-condensed" style="width: 100%">
+              <thead>
+                <tr>
+                  <th>序号</th>
+                  <th>订单号</th>
+                  <th>航班号</th>
+                  <th>飞机机型</th>
+                  <th>城市区间<br/>（出发城市--到达城市）</th>
+                  <th>时间区间<br/>（出发时间--到达时间）</th>
+                  <th>出发日期</th>
+                  <th>仓位</th>
+                  <th>票价</th>
+                  <th>操作</th>
+                </tr>
+              </thead>
+              <tbody  id="aas">
+                <tr>
+                  <td>1</td>
+                  <td>4234233435</td>
+                  <td>FSF27438</td>
+                  <td>334</td>
+                  <td>上海-南京</td>
+                  <td>9:30--12:00</td>
+                  <td>2013-12-11</td>
+                  <td>头等舱</td>
+                  <td>￥2100</td>
+                  <td>
+                  	<a href="" class="btn" onclick="return confirm('确定要退票吗?')">退票</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>2342389908</td>
+                  <td>UF2433</td>
+                  <td>320</td>
+                  <td>北京-南京</td>
+                  <td>15:20--19:00</td>
+                  <td>2013-12-11</td>
+                  <td>头等舱</td>
+                  <td>￥2100</td>
+                  <td>
+                  	<a href="" class="btn">退票</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>8764334</td>
+                  <td>PV4324</td>
+                  <td>333</td>
+                  <td>上海-哈尔滨</td>
+                  <td>9:30--12:00</td>
+                  <td>2013-12-11</td>
+                  <td>头等舱</td>
+                  <td>￥2100</td>
+                  <td>
+                  	<a href="" class="btn">退票</a>
+                  </td>
+                </tr>
+              </tbody>
+         </table>
+		
+    </div>
+</body>
+</html>

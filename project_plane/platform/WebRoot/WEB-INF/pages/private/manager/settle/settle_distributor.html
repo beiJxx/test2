@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>费用维护</title>
+<link rel="stylesheet" type="text/css"
+	href="../../../../css/bootstrap.min.css">
+
+<style type="text/css">
+.mylabel {
+	color: inherit;
+	font-family: inherit;
+	font-weight: bold;
+	line-height: 20px;
+	margin: 10px 0;
+	text-rendering: optimizelegibility;
+	font-size: 22px;
+}
+</style>
+<script type="text/javascript" src="../../../../js/jquery.js"></script>
+<script type="text/javascript" src="../../../../js/jquery.form.js"></script></head>
+<script src="../../../../js/bootstrap.min.js"></script>
+<body>
+	<div class="hero-unit">
+		<h3>
+			当前账户余额：12.1万元 <a href="#mysettle" class="btn pull-right btn-info"
+				data-toggle="modal">结算</a>
+		</h3>
+		<hr />
+		<div>
+			<table style="width: 100%"
+				class="table table-bordered table-hover table-striped">
+				<thead>
+					<tr>
+						<th>编号</th>
+						<th>结算流水号</th>
+						<th>金额</th>
+						<th>凭据</th>
+						<th>状态</th>
+						<th>备注</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>1</td>
+						<td>1123124256</td>
+						<td>13.2万</td>
+						<th><a href="#myCredential" data-toggle="modal">查看凭据</a></th>
+						<td>待确认</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>2</td>
+						<td>87645322689</td>
+						<td>13.2万</td>
+						<th><a href="#">查看凭据</a></th>
+						<td>已拒绝</td>
+						<td>流水号错误，查无此结算</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="pagination pagination-centered">
+			<ul>
+				<li class="disabled"><a href="#">«</a></li>
+				<li class="active"><a href="#">1</a></li>
+				<li><a href="#">2</a></li>
+				<li><a href="#">3</a></li>
+				<li><a href="#">4</a></li>
+				<li><a href="#">5</a></li>
+				<li><a href="#">»</a></li>
+			</ul>
+		</div>
+	</div>
+	<!-- S结算的弹出 -->
+	<div id="mysettle" class="modal hide fade" tabindex="-1" role="dialog"
+		aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-header">
+			<h3 align="center">结算</h3>
+		</div>
+		<div class="modal-body">
+			<form class="bs-docs-example form-horizontal">
+				<div class="control-group">
+					<label for="rate" class="control-label">结算金额</label>
+					<div class="controls">
+						<input type="text" placeholder="00.00" name="price" class="span3">
+					</div>
+					<label for="num" class="control-label">流水号</label>
+					<div class="controls">
+						<input type="text" placeholder="请输入流水号" name="num" class="span3">
+					</div>
+					<label for="rate" class="control-label">凭据上传</label>
+					<div class="controls">
+						<input id="lefile" type="file" style="display:none">
+						<div class="input-append">
+							<input id="photoCover" class="input-large" type="text">
+							<a class="btn" onclick="$('input[id=lefile]').click();">选择图片</a>
+						</div>
+					</div>
+					<div class="control-group" style="text-align: center;">
+						<img src="../../../../images/logo.png"></img>
+					</div>
+					<script type="text/javascript">
+						$('input[id=lefile]').change(function() {
+							$('#photoCover').val($(this).val());
+						});
+					</script>
+				</div>
+			</form>
+		</div>
+		<div class="modal-footer">
+			<button id="save" class="btn btn-primary" onclick="save()">结算</button>
+			<button class="btn" data-dismiss="modal" aria-hidden="true">取消</button>
+		</div>
+	</div>
+	<!-- E结算的弹出 -->
+	<!-- S凭据的弹出 -->
+	<div id="myCredential" class="modal hide fade" tabindex="-1"
+		role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-header">
+			<h3 align="center">凭据</h3>
+		</div>
+		<div class="modal-body">
+			<img src="../../../../images/logo.png"></img>
+		</div>
+	</div>
+	<!-- E凭据的弹出 -->
+</body>
+</html>

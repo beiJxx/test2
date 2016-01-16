@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>分销商管理</title>
+<style type="text/css">
+	div{
+		margin-bottom: 10px;
+	}
+</style>
+</head>
+<link rel="stylesheet" type="text/css"
+	href="../../../../css/bootstrap-responsive.min.css">
+<link rel="stylesheet" type="text/css"
+	href="../../../../css/bootstrap.min.css">
+
+<script src="../../../../js/jquery.js"></script>
+<script src="../../../../js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../../../js/transition.js"></script>
+<script type="text/javascript" src="../../../../js/modal.js"></script>
+<script type="text/javascript" src="../../../../js/button.js"></script>
+<script type="text/javascript">
+		function update(){
+			$("#update").attr("data-dismiss","modal");
+		}
+		function save(){
+			$("#save").attr("data-dismiss","modal");
+		}
+		function modify(id,item){
+			alert(id);
+			$(item).attr("data-toggle","modal");
+		}
+	</script>
+<body>
+	<form class="bs-docs-example form-search" >
+		<font style="font-weight: bold;">查询条件:&nbsp;&nbsp;&nbsp;</font> 
+		<label	for="roleName">编号：</label> 
+		<input type="text" name="roleName"	class="input-small search-query" placeholder="分销商编号">
+		<label	for="roleName">名称：</label> 
+		<input type="text" name="roleName"	class="input-small search-query" placeholder="分销商名称">
+		<label	for="roleName">联系人：</label> 
+		<input type="text" name="roleName"	class="input-small search-query" placeholder="分销商联系人">
+		<button class="btn" type="submit">查询</button>
+	</form>
+	<table style="width: 100%" class="table table-bordered table-hover table-striped">
+		<thead>
+			<tr>
+				<th colspan="9" style="text-align: left;">
+				<a href="#myModal" style="width: 75px;" class="btn" data-toggle="modal" >添加分销商</a>
+				</th>
+			</tr>
+			<tr>
+				<th>ID</th>
+				<th>编号</th>
+				<th>名称</th>
+				<th>简介</th>
+				<th>电子邮箱</th>
+				<th>联系人</th>
+				<th>联系人电话</th>
+				<th>联系人QQ</th>
+				<th>账户余额(万元)</th>
+				<th>操作</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>1</td>
+				<td>20131</td>
+				<td>携程</td>
+				<td style="max-width: 200px;">携程网是中国领先的在线票务服务公司</td>
+				<td>mail.xiecheng.com</td>
+				<td>张奇夫</td>
+				<td>83960210</td>
+				<td>154258468</td>
+				<td>12</td>
+				<td>
+					<a href="#myModify" onclick="modify('1',this)">修改</a><br>
+					<a href=""	onclick="return confirm('确定要删除吗？')">删除</a>
+				</td>
+			</tr>
+			<tr>
+				<td>1</td>
+				<td>20201</td>
+				<td>携程</td>
+				<td>携程网是中国领先的在线票务服务公司</td>
+				<td>mail.xiecheng.com</td>
+				<td>张奇夫</td>
+				<td>83960210</td>
+				<td>154258468</td>
+				<td>6.7</td>
+				<td><a href="#myModify" onclick="modify('1',this)">修改</a><br><a href=""
+					onclick="return confirm('确定要删除吗？')">删除</a></td>
+			</tr>
+		</tbody>
+	</table>
+	<div class="bs-docs-example">
+		<div class="pagination pagination-centered">
+			<ul>
+				<li class="disabled"><a href="#">«</a>
+				</li>
+				<li class="active"><a href="#">1</a>
+				</li>
+				<li><a href="#">2</a>
+				</li>
+				<li><a href="#">3</a>
+				</li>
+				<li><a href="#">4</a>
+				</li>
+				<li><a href="#">5</a>
+				</li>
+				<li><a href="#">»</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<!-- 	S分销商增加的弹出 -->
+	<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog"
+		aria-labelledby="myModalLabel" aria-hidden="true">
+		<form class="bs-docs-example form-horizontal" action="#">
+		<div class="modal-header">
+			<h3 align="center">分销商增加</h3>
+		</div>
+		<div class="modal-body">
+			<div class="control-group">
+				<label for="companyName" class="control-label">企业名称</label>
+				<div class="controls">
+					<input type="text" placeholder="企业名称" name="companyName" autocomplete="on" required="required" >
+				</div>
+				
+				<label for="username" class="control-label">登录名</label>
+				<div class="controls">
+					<input type="text" placeholder="登录名" name="username" autocomplete="on" required="required" pattern="">
+				</div>
+				
+				<label for="password" class="control-label">登录密码</label>
+				<div class="controls">
+					<input type="text" placeholder="登录密码" name="password" autocomplete="on" required="required" pattern="">
+				</div>
+				
+				<label for="repassword" class="control-label">重复密码</label>
+				<div class="controls">
+					<input type="text" placeholder="重复密码" name="repassword" autocomplete="on" required="required" pattern="">
+				</div>
+				
+				<label for="linkman" class="control-label">联系人</label>
+				<div class="controls">
+					<input type="text" placeholder="联系人" id="linkman" autocomplete="on" required="required" pattern="">
+				</div>
+				
+				<label for="phone" class="control-label">电话</label>
+				<div class="controls">
+					<input type="text" placeholder="电话" name="phone" autocomplete="on" required="required" pattern="">
+				</div>
+				
+				<label for="qq" class="control-label">QQ</label>
+				<div class="controls">
+					<input type="text" placeholder="QQ" name="qq" autocomplete="on" required="required" pattern="">
+				</div>
+				
+				<label for="email" class="control-label">邮箱</label>
+				<div class="controls">
+					<input type="text" placeholder="邮箱" id="email" autocomplete="on" required="required" pattern="">
+				</div>
+			</div>
+		</div>
+		<div class="modal-footer">
+			<input id="save" type="submit" class="btn btn-primary" value="添加"/>
+			<button class="btn" data-dismiss="modal" aria-hidden="true">取消</button>
+		</div>
+		</form>
+	</div>
+	<!-- 	E分销商增加的弹出 -->
+	<!-- 	S分销商修改的弹出 -->
+	<div id="myModify" class="modal hide fade" tabindex="-1" role="dialog"
+		aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-header">
+			<h3 align="center">分销商修改</h3>
+		</div>
+		<div class="modal-body">
+			<div class="control-group">
+				<form class="bs-docs-example form-horizontal">
+				<label for="id" class="control-label">分销商ID</label>
+				<div class="controls">
+					<input type="text" placeholder="分销商ID" name="id" value="1" readonly="readonly">
+				</div>
+				<label for="no" class="control-label">分销商编号</label>
+				<div class="controls">
+					<input type="text" placeholder="分销商编号" name="no" readonly="readonly" value="20131201">
+				</div>
+				
+				<label for="companyName" class="control-label">企业名称</label>
+				<div class="controls">
+					<input type="text" placeholder="企业名称" name="companyName" autocomplete="on" required="required" pattern="">
+				</div>
+				
+				<label for="username" class="control-label">登录名</label>
+				<div class="controls">
+					<input type="text" placeholder="登录名" name="username" autocomplete="on" required="required" pattern="">
+				</div>
+				
+				<label for="password" class="control-label">登录密码</label>
+				<div class="controls">
+					<input type="text" placeholder="登录密码" name="password" autocomplete="on" required="required" pattern="">
+				</div>
+				
+				<label for="repassword" class="control-label">重复密码</label>
+				<div class="controls">
+					<input type="text" placeholder="重复密码" name="repassword" autocomplete="on" required="required" pattern="">
+				</div>
+				
+				<label for="linkman" class="control-label">联系人</label>
+				<div class="controls">
+					<input type="text" placeholder="联系人" id="linkman" autocomplete="on" required="required" pattern="">
+				</div>
+				
+				<label for="phone" class="control-label">电话</label>
+				<div class="controls">
+					<input type="text" placeholder="电话" name="phone" autocomplete="on" required="required" pattern="">
+				</div>
+				
+				<label for="qq" class="control-label">QQ</label>
+				<div class="controls">
+					<input type="text" placeholder="QQ" name="qq" autocomplete="on" required="required" pattern="">
+				</div>
+				
+				<label for="email" class="control-label">邮箱</label>
+				<div class="controls">
+					<input type="text" placeholder="邮箱" id="email" autocomplete="on" required="required" pattern="">
+				</div>
+				</form>
+			</div>
+		</div>
+		<div class="modal-footer">
+			<button id="update" class="btn btn-primary" onclick="update()">修改</button>
+			<button class="btn" data-dismiss="modal" aria-hidden="true">取消</button>
+		</div>
+	</div>
+	<!-- 	E分销商修改的弹出 -->
+</body>
+</html>
